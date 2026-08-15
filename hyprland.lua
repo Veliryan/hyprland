@@ -2,7 +2,7 @@
 -- to view monitors use hyprctl monitors
 hl.monitor({
   output   = "",
-  mode     = "auto",
+  mode     = "preferred",
   position = "auto",
   scale    = "auto",
   -- transform = 1,
