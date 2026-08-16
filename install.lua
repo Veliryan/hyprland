@@ -73,7 +73,7 @@ for _, val in ipairs(other_commands) do
 end
 
 -- @nav: copy
-for _, val in ipairs(copy_comands) do
+for _, val in ipairs(copy_commands) do
   copy_file(val[1], val[2], val[3])
 end
 
