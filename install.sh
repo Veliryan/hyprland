@@ -32,7 +32,7 @@ copy_file() {
   name=$3
   
   sudo mkdir -p $dest
-  if is_found() "$2$3"; then
+  if is_found "$2$3"; then
     sudo mv "$2$3" "$2$3.old"
   fi
 
@@ -47,3 +47,10 @@ cargo=("noctalia-greeter" "pokeget")
 
 # package install
 do_install_list "${drivers[*]} ${packages[*]}"
+
+# @nav: configs
+copy_file "./configs/greetd" "/etc/greetd/" "config.toml"
+copy_file "./configs/hyprland" "$HOME/.config/hypr/" "hyprland.lua"
+copy_file "./configs/kitty" "$HOME/.config/kitty/" "kitty.conf"
+copy_file "./configs/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
+copy_file "./configs/zsh" "$HOME/" ".zshrc"
