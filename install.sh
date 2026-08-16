@@ -23,7 +23,7 @@ do_install_list() {
 }
 
 do_install_paru_list() {
-  sudo cargo install -S --needed $1
+  sudo paru -S --needed $1
 }
 
 copy_file() {
