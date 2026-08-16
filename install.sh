@@ -43,7 +43,7 @@ copy_file() {
 drivers=("amd-ucode" "nvidia-open" "nvidia-utils" "lib32-nvidia-utils")
 packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "lsd" "nodejs" "rust" "npm" "fastfetch" "hdparm" "steam" "discord" "udisks2" "polkit")
 paru=("noctalia-greeter" "pokeget" "google-chrome" "mpv" "mpvpaper")
-neovim_dep=("neovim" "git" "ripgrep" "fd" "tar" "curl" "tree-sitter" "gcc" "npm" "zip" "unzip")
+neovim_dep=("neovim" "git" "ripgrep" "fd" "tar" "curl" "tree-sitter" "tree-sitter-cli" "gcc" "npm" "zip" "unzip")
 
 # install paru
 if ! is_installed "paru"; then
@@ -98,6 +98,7 @@ mkdir -p $HOME/Documents $HOME/Downloads $HOME/Pictures $HOME/Pictures/Wallpaper
 
 # @nav: wallpaper
 # setup noctalia/mpvpaper
+# this should actually only be done after a restart but it does not hurt to have it in here
 noctalia msg plugins enable noctalia/mpvpaper
 CONFIG="$HOME/.local/state/noctalia/settings.toml"
 if ! grep -q '^[[:space:]]*start = .*"mpvpaper"' "$CONFIG"; then
