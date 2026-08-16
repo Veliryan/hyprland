@@ -23,7 +23,7 @@ do_install_list() {
 }
 
 do_install_cargo_list() {
-  sudo cargo -S --needed $1
+  sudo cargo install $1
 }
 
 copy_file() {
@@ -45,8 +45,11 @@ drivers=("amd-ucode" "nvidia-open" "nvidia-utils" "lib32-nvidia-utils")
 packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "greetd-tuigreet" "lsd" "nodejs" "rust" "npm" "fastfetch" "steam" "discord")
 cargo=("noctalia-greeter" "pokeget")
 
-# package install
+# package install pacman
 do_install_list "${drivers[*]} ${packages[*]}"
+
+# package install cargo
+do_install_cargo_list "${cargo[*]}"
 
 # @nav: configs
 copy_file "./configs/greetd" "/etc/greetd/" "config.toml"
@@ -54,3 +57,6 @@ copy_file "./configs/hyprland" "$HOME/.config/hypr/" "hyprland.lua"
 copy_file "./configs/kitty" "$HOME/.config/kitty/" "kitty.conf"
 copy_file "./configs/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
 copy_file "./configs/zsh" "$HOME/" ".zshrc"
+
+sudo systemctl enable greetd
+reboot
