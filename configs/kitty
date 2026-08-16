@@ -1,0 +1,14 @@
+# @nav: theme
+# >kitten +themes themes 
+include ${HOME}/.config/kitty/kitty-themes/themes/ayu_mirage.conf
+
+# @nav: sound
+enable_audio_bell no
+
+# @nav: font
+font_family       FiraMono Nerd Font
+bold_font         auto
+italic_font       auto
+bold_italic_font  auto
+font_size         12.0
+
