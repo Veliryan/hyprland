@@ -30,8 +30,8 @@ hl.monitor({
 local terminal    = "kitty"
 local file_manager = "thunar"
 local menu        = "noctalia msg panel-toggle launcher"
-local web_browser = "firefox"
-local screenshot = ""
+local web_browser_fallback = "firefox"
+local web_browser = "google-chrome-stable"
 
 hl.on("hyprland.start", function () 
   hl.exec_cmd("nm-applet")
