@@ -54,7 +54,7 @@ print("")
 print(
   "Note if your hardware does not match or you do not want to instal it here, please make sure to install the drivers yourself.")
 print("Would you like to install the drivers for this hardware?(y/n)")
-local answer = io.input()
+local answer = io.read()
 if answer == "y" then
   do_install_list(drivers)
 end
