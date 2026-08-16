@@ -1,7 +1,7 @@
 #!/bin/bash
 
 path="$(pwd)"
-conf="$(pwd)/${conf}"
+conf="$(pwd)/configs"
 
 # @nav: functions
 is_installed() {
@@ -69,10 +69,8 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
 fi
 
 # else
-# CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
-mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/main/pokemon.sh
-
+mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://raw.githubusercontent.com/Discomanfulanito/pokefetch/refs/heads/main/pokemon.sh
 
 # @nav: config
 # system files 
@@ -86,5 +84,6 @@ copy_file "${conf}/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
 copy_file "${conf}/zsh" "$HOME/" ".zshrc"
 
 
-# sudo systemctl enable greetd
+sudo systemctl enable greetd
+
 # reboot
