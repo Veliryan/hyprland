@@ -1,8 +1,0 @@
-{
-    "diagnostics.globals": [
-        "vim",
-        "do_install_list",
-        "is_installed",
-        "copy_file"
-    ]
-}
