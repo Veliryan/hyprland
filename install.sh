@@ -42,7 +42,7 @@ copy_file() {
 # @nav: packages
 # package lists
 drivers=("amd-ucode" "nvidia-open" "nvidia-utils" "lib32-nvidia-utils")
-packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "greetd-tuigreet" "lsd" "nodejs" "rust" "npm" "fastfetch" "steam" "discord")
+packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "lsd" "nodejs" "rust" "npm" "fastfetch" "steam" "discord")
 paru=("noctalia-greeter" "pokeget" "google-chrome")
 
 # package install pacman
@@ -66,7 +66,7 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
 fi
 
 # else
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
 mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/main/pokemon.sh
 
