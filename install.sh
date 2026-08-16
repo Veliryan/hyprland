@@ -79,5 +79,5 @@ copy_file "./configs/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
 copy_file "./configs/zsh" "$HOME/" ".zshrc"
 
 
-sudo systemctl enable greetd
-reboot
+# sudo systemctl enable greetd
+# reboot
