@@ -23,7 +23,7 @@ do_install_list() {
 }
 
 do_install_paru_list() {
-  sudo paru -S --needed $1
+  paru -S --needed $1
 }
 
 copy_file() {
@@ -68,7 +68,7 @@ fi
 # else
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
-mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/blob/main/pokemon.sh
+mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/main/pokemon.sh
 
 
 # @nav: configs
