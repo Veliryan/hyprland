@@ -13,7 +13,7 @@ local packages = {
   "zsh",
   "kitty", "firefox", "noto-fonts", "otf-firamono-nerd", "neovim",
   "thunar", "thunar-archive-plugin", "thunar-media-tags-plugin", "thunar-volman", "xarchiver",
-  "hyprland", "hyprpaper", "hyprshot", "noctalia", "greetd",
+  "hyprland", "hyprpaper", "hyprshot", "noctalia", "greetd", "greetd-tuigreet",
   "lsd", "nodejs", "rust", "npm", "fastfetch", "steam discord"
 }
 
@@ -77,3 +77,6 @@ end
 for _, val in ipairs(copy_comands) do
   copy_file(val[1], val[2], val[3])
 end
+
+
+os.execute("sudo systemctl enable greetd")
