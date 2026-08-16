@@ -1,4 +1,4 @@
-require("functions.lua")
+require("functions")
 
 os.execute("clear")
 print("Starting install script for 'github.com/Veliryan/hyprland'")
@@ -40,7 +40,7 @@ local other_commands = {
 
 local copy_commands = {
   { "greetd",   "/etc/greetd/",         "config.toml" },
-  { "hyprland", "$HOME/.config/hypr",   "hyprland.lua" },
+  { "hyprland", "$HOME/.config/hypr/",  "hyprland.lua" },
   { "kitty",    "$HOME/.config/kitty/", "kitty.conf" },
   { "xfce4",    "$HOME/.config/xfce4/", "helpers.rc" },
   { "zsh",      "$HOME/",               ".zshrc" }
@@ -48,14 +48,13 @@ local copy_commands = {
 
 
 -- @nav: drivers
-local answer = ""
 print("CPU: Amd Ryzen 5 7600X")
 print("GPU: RTX3090")
 print("")
 print(
   "Note if your hardware does not match or you do not want to instal it here, please make sure to install the drivers yourself.")
 print("Would you like to install the drivers for this hardware?(y/n)")
-answer = io.input()
+local answer = io.input()
 if answer == "y" then
   do_install_list(drivers)
 end
@@ -72,4 +71,9 @@ os.execute("paru -S --needed " .. table.concat(cargo_packages, " "))
 -- @anv: other
 for _, val in ipairs(other_commands) do
   os.execute(val)
+end
+
+-- @nav: copy
+for _, val in ipairs(copy_comands) do
+  copy_file(val[1], val[2], val[3])
 end
