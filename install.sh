@@ -1,5 +1,8 @@
 #!/bin/bash
 
+path="$(pwd)"
+conf="$(pwd)/${conf}"
+
 # @nav: functions
 is_installed() {
     if dpkg -s "$1" &> /dev/null; then
@@ -31,12 +34,12 @@ copy_file() {
   dest=$2
   name=$3
   
-  sudo mkdir -p $dest
-  if is_found "$2$3"; then
-    sudo mv "$2$3" "$2$3.old"
+  mkdir -p $dest
+  if is_found "$dest$name"; then
+    mv "$dest$name" "$dest$name.old"
   fi
 
-  sudo cp "$1" "$2$3"
+  cp "$src" "$dest$name"
 }
 
 # @nav: packages
@@ -71,12 +74,16 @@ git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/
 mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/main/pokemon.sh
 
 
-# @nav: configs
-copy_file "./configs/greetd" "/etc/greetd/" "config.toml"
-copy_file "./configs/hyprland" "$HOME/.config/hypr/" "hyprland.lua"
-copy_file "./configs/kitty" "$HOME/.config/kitty/" "kitty.conf"
-copy_file "./configs/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
-copy_file "./configs/zsh" "$HOME/" ".zshrc"
+# @nav: config
+# system files 
+sudo mkdir -p /etc/greetd/
+sudo rm -f /etc/greetd/config.toml
+sudo cp "${conf}/greetd" "/etc/greetd/config.toml"
+# user files
+copy_file "${conf}/hyprland" "$HOME/.config/hypr/" "hyprland.lua"
+copy_file "${conf}/kitty" "$HOME/.config/kitty/" "kitty.conf"
+copy_file "${conf}/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
+copy_file "${conf}/zsh" "$HOME/" ".zshrc"
 
 
 # sudo systemctl enable greetd
