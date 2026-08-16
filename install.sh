@@ -1,6 +1,7 @@
 #!/bin/bash
 
 conf="$(pwd)/configs"
+vids="$(pwd)/vids"
 
 # @nav: functions
 is_installed() {
@@ -41,7 +42,7 @@ copy_file() {
 # package lists
 drivers=("amd-ucode" "nvidia-open" "nvidia-utils" "lib32-nvidia-utils")
 packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "lsd" "nodejs" "rust" "npm" "fastfetch" "steam" "discord")
-paru=("noctalia-greeter" "pokeget" "google-chrome")
+paru=("noctalia-greeter" "pokeget" "google-chrome" "mpv" "mpvpaper")
 neovim_dep=("neovim" "git" "ripgrep" "fd" "tar" "curl" "tree-sitter" "gcc" "npm" "zip" "unzip")
 
 # install paru
@@ -88,8 +89,28 @@ if ! [ -d "$HOME/.config/nvim" ]; then
     git clone https://github.com/Veliryan/nvim $HOME/.config/nvim
 fi
 
-rm -f $HOME/.bash* .shell.pre-oh-my-zsh
+rm -f $HOME/.bash*
+rm -f $HOME/.shell.pre-oh-my-zsh
+rm -f $HOME/.zcompdump-*
 
+mkdir -p $HOME/Documents $HOME/Downloads $HOME/Pictures $HOME/Pictures/Wallpapers $HOME/Music $HOME/Videos
+
+# @nav: wallpaper
+# setup noctalia/mpvpaper
+noctalia msg plugins enable noctalia/mpvpaper
+CONFIG="$HOME/.local/state/noctalia/settings.toml"
+if ! grep -q '^[[:space:]]*start = .*"mpvpaper"' "$CONFIG"; then
+    sed -i '/^\[bar\.default\]/,/^\[/ {
+        s/^start = \[ /start = [ "mpvpaper", /
+    }' "$CONFIG"
+
+    noctalia msg config-reload
+fi
+cp "${vids}/bottle.mp4" $HOME/Videos/
+cp "${vids}/pokemon-emerald-may.mp4" $HOME/Videos/
+cp "${vids}/terraria-snow.mp4" $HOME/Videos/
+
+# @nav: reboot
 read -p "Would you like to reboot?(y/n)" do_reboot
 if [[ "$do_reboot" =~ ^[Yy]$ ]]; then
   reboot
