@@ -12,7 +12,9 @@ alias cl='reset && l'
 alias nv='nvim'
 alias py='python'
 alias fastfetch='sh $HOME/.config/fastfetch/pokemon.sh'
+
 alias gith='echo "git remote set-url origin git@github.com:<user>/<repo>.git" && echo "git remote -v"'
+alisa speedtest='echo "sudo hdparm -Tt /dev/<disk>"'
 
 fastfetch
 
