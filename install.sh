@@ -1,15 +1,10 @@
 #!/bin/bash
 
-path="$(pwd)"
 conf="$(pwd)/configs"
 
 # @nav: functions
 is_installed() {
-    if dpkg -s "$1" &> /dev/null; then
-        return 0
-    else
-        return 1
-    fi
+    pacman -Q "$1" &> /dev/null
 }
 
 is_found() {
@@ -52,25 +47,24 @@ paru=("noctalia-greeter" "pokeget" "google-chrome")
 do_install_list "${drivers[*]} ${packages[*]}"
 
 # install paru
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si 
+if ! is_installed "paru"; then
+    sudo pacman -S --needed base-devel
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si 
+fi
 
 # package install paru
 do_install_paru_list "${paru[*]}"
 
-# extra packages
-extra=("visual-studio-bin")
-echo "${extra[*]}"
-read -p "Would you like to install the extra Software?(y/n)" answer
-if [[ "$answer" =~ ^[Yy]$ ]]; then
-  do_install_paru_list "${extra[*]}"
-fi
-
 # else
-git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
-mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://raw.githubusercontent.com/Discomanfulanito/pokefetch/refs/heads/main/pokemon.sh
+if ! [ -d "$HOME/.config/kitty/kitty-themes" ]; then
+    git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
+fi
+if ! [ -d "$HOME/.config/fastfetch" ]; then
+    mkdir -p $HOME/.config/fastfetch
+    curl -o $HOME/.config/fastfetch/pokemon.sh https://raw.githubusercontent.com/Discomanfulanito/pokefetch/refs/heads/main/pokemon.sh
+fi
 
 # @nav: config
 # system files 
@@ -83,12 +77,23 @@ copy_file "${conf}/kitty" "$HOME/.config/kitty/" "kitty.conf"
 copy_file "${conf}/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
 copy_file "${conf}/zsh" "$HOME/" ".zshrc"
 
+# @nav: systemctl
 sudo systemctl enable greetd
 
+# @nav: oh-my-zsh / ohmyzsh
+if ! [ -d "$HOME/.oh-my-zsh" ]; then
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# @nav: neovim / nvim
+if ! [ -d "$HOME/.config/nvim" ]; then
+    git clone https://github.com/Veliryan/nvim $HOME/.config/nvim
+    lua $HOME/.config/nvim/install.lua
+fi
+
+rm -f $HOME/.bash* .shell.pre-oh-my-zsh
 
 read -p "Would you like to reboot?" do_reboot
 if [[ "$do_reboot" =~ ^[Yy]$ ]]; then
   reboot
 fi
-
