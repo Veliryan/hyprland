@@ -54,8 +54,22 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si 
 
-# package install cargo
-do_install_cargo_list "${paru[*]}"
+# package install paru
+do_install_paru_list "${paru[*]}"
+
+# extra packages
+extra=("visual-studio-bin")
+echo "${extra[*]}"
+read -p "Would you like to install the extra Software?(y/n)" answer
+if [[ "$answer" =~ ^[Yy]$ ]]; then
+  do_install_paru_list "${extra[*]}"
+fi
+
+# else
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
+mkdir -p $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/blob/main/pokemon.sh
+
 
 # @nav: configs
 copy_file "./configs/greetd" "/etc/greetd/" "config.toml"
@@ -63,6 +77,7 @@ copy_file "./configs/hyprland" "$HOME/.config/hypr/" "hyprland.lua"
 copy_file "./configs/kitty" "$HOME/.config/kitty/" "kitty.conf"
 copy_file "./configs/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
 copy_file "./configs/zsh" "$HOME/" ".zshrc"
+
 
 sudo systemctl enable greetd
 reboot
