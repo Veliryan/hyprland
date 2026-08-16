@@ -83,7 +83,12 @@ copy_file "${conf}/kitty" "$HOME/.config/kitty/" "kitty.conf"
 copy_file "${conf}/xfce4" "$HOME/.config/xfce4/" "helpers.rc"
 copy_file "${conf}/zsh" "$HOME/" ".zshrc"
 
-
 sudo systemctl enable greetd
 
-# reboot
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+read -p "Would you like to reboot?" do_reboot
+if [[ "$do_reboot" =~ ^[Yy]$ ]]; then
+  reboot
+fi
+
