@@ -42,6 +42,7 @@ copy_file() {
 drivers=("amd-ucode" "nvidia-open" "nvidia-utils" "lib32-nvidia-utils")
 packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "lsd" "nodejs" "rust" "npm" "fastfetch" "steam" "discord")
 paru=("noctalia-greeter" "pokeget" "google-chrome")
+neovim_dep=("neovim" "git" "ripgrep" "fd" "tar" "curl" "tree-sitter" "gcc" "npm" "zip" "unzip")
 
 # install paru
 if ! is_installed "paru"; then
@@ -85,12 +86,11 @@ fi
 # @nav: neovim / nvim
 if ! [ -d "$HOME/.config/nvim" ]; then
     git clone https://github.com/Veliryan/nvim $HOME/.config/nvim
-    lua $HOME/.config/nvim/install.lua
 fi
 
 rm -f $HOME/.bash* .shell.pre-oh-my-zsh
 
-read -p "Would you like to reboot?" do_reboot
+read -p "Would you like to reboot?(y/n)" do_reboot
 if [[ "$do_reboot" =~ ^[Yy]$ ]]; then
   reboot
 fi
