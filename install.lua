@@ -31,7 +31,6 @@ local install_paru_commands = {
 }
 
 local other_commands = {
-  'chsh -s "$(which zsh)"',
   'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
   'git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes',
   'mkdir $HOME/.config/fastfetch && curl -o $HOME/.config/fastfetch/pokemon.sh https://github.com/Discomanfulanito/pokefetch/blob/main/pokemon.sh',
@@ -80,3 +79,7 @@ end
 
 
 os.execute("sudo systemctl enable greetd")
+
+os.execute("lua $HOME/.config/nvim/install.lua")
+
+os.execute("reboot")
