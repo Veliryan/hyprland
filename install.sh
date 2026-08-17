@@ -41,7 +41,7 @@ copy_file() {
 # @nav: packages
 # package lists
 drivers=("amd-ucode" "nvidia-open" "nvidia-utils" "lib32-nvidia-utils")
-packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "lsd" "nodejs" "rust" "npm" "fastfetch" "hdparm" "steam" "discord" "udisks2" "polkit")
+packages=("base" "base-devel" "networkmanager" "git" "curl" "openssh" "zip" "unzip" "zsh" "kitty" "firefox" "noto-fonts" "otf-firamono-nerd" "neovim" "thunar" "thunar-archive-plugin" "thunar-media-tags-plugin" "thunar-volman" "xarchiver" "hyprland" "hyprpaper" "hyprshot" "noctalia" "greetd" "lsd" "nodejs" "rust" "npm" "fastfetch" "hdparm" "steam" "discord" "udisks2" "polkit" "gvfs" "gnome-disk-utility" "polkit-gnome")
 paru=("noctalia-greeter" "pokeget" "google-chrome" "mpv" "mpvpaper")
 neovim_dep=("neovim" "git" "ripgrep" "fd" "tar" "curl" "tree-sitter" "tree-sitter-cli" "gcc" "npm" "zip" "unzip")
 
