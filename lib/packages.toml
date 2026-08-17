@@ -1,0 +1,56 @@
+[packages]
+basics = ["base", "base-devel", "networkmanager", "vi", "git", "nushell", "bat"]
+drivers = ["amd-ucode", "nvidia-open", "nvidia-utils", "lib32-nvidia-utils"]
+fonts = ["noto-fonts", "otf-firamono-nerd"]
+hyprland = [
+  "kitty",
+  "firefox",
+  "hyprland",
+  "hyprshot",
+  "hyprpaper",
+  "greetd",
+  "noctalia",
+  "noctalia-greeter",
+  "mpv",
+  "mpvpaper",
+  "thunar",
+  "thunar-archive-plugin",
+  "thunar-media-tags-plugin",
+  "thunar-volman",
+  "xarchiver",
+  "gnome-disk-utility",
+  "polkit",
+  "polkit-gnome",
+  "hyprpolkitagent",
+  "hdparm",
+  "gvfs",
+  "udiskie",
+  "udisks2",
+]
+extra = [
+  "curl",
+  "htop",
+  "btop",
+  "fastfetch",
+  "steam",
+  "discord",
+  "rust",
+  "nodejs",
+  "openssh",
+  "google-chrome",
+  "pokeget",
+]
+neovim = [
+  "neovim",
+  "git",
+  "ripgrep",
+  "fd",
+  "tar",
+  "curl",
+  "tree-sitter",
+  "tree-sitter-cli",
+  "gcc",
+  "npm",
+  "zip",
+  "unzip",
+]
