@@ -6,7 +6,7 @@ export def is_found [file_or_folder: string] {
   ($file_or_folder | path exists)
 }
 
-export def run_command [command: string, args: list<string>, use_sudo: bool] {
+export def run_command [command: string, args: list<string>, use_sudo: bool = false] {
   if $use_sudo {
     ^sudo $command ...$args
   } else {
