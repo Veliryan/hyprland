@@ -27,11 +27,13 @@ hl.monitor({
 })
 --]]
 
-local terminal    = "kitty"
-local file_manager = "thunar"
-local menu        = "noctalia msg panel-toggle launcher"
-local web_browser_fallback = "firefox"
-local web_browser = "google-chrome-stable"
+local terminal                = "kitty"
+local file_manager            = "thunar"
+local menu                    = "noctalia msg panel-toggle launcher"
+local web_browser             = "google-chrome-stable"
+local web_browser_fallback    = "firefox"
+local do_screenshot           = "hyprshot -m region --clipboard-only"
+
 
 hl.on("hyprland.start", function () 
   hl.exec_cmd("nm-applet")
@@ -204,12 +206,23 @@ local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(file_manager))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(web_browser))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(do_screenshot))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+-- web_browser
+hl.bind(
+  mainMod .. " + S",
+  hl.dsp.exec_cmd(
+    "command -v " .. web_browser .. " >/dev/null 2>&1 && " ..
+    web_browser .. " || " ..
+    web_browser_fallback
+  )
+)
+
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
