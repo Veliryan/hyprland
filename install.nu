@@ -67,8 +67,8 @@ do_copy_file ($src_cfg | path join "env.nu") ($config_dir | path join "nushell/e
 
 
 # Systemctl 
-run_command "system" ["enable", "greetd"] true
-run_command "system" ["enable", "udisks2"] true
+run_command "systemctl" ["enable", "greetd"] true
+run_command "systemctl" ["enable", "udisks2"] true
 
 # Create Home Folder structure
 run_command "mkdir" ["-p", ($env.HOME | path join "Documents")]
