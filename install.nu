@@ -77,3 +77,11 @@ run_command "mkdir" ["-p", ($env.HOME | path join "Music")]
 run_command "mkdir" ["-p", ($env.HOME | path join "Pictures")]
 run_command "mkdir" ["-p", ($env.HOME | path join "Pictures/Wallpapers")]
 run_command "mkdir" ["-p", ($env.HOME | path join "Videos")]
+
+# Change standard shell
+^chsh -s "/bin/nu"
+
+# Reboot System
+print "Rebooting the system 5 Seconds"
+^sleep 5
+^reboot
