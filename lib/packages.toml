@@ -39,6 +39,8 @@ extra = [
   "openssh",
   "google-chrome",
   "pokeget",
+  "mpv-mpris",
+  "strawberry",
 ]
 neovim = [
   "neovim",
