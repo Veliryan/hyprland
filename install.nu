@@ -42,7 +42,7 @@ if not (is_found ($config_dir | path join "kitty/kitty-themes")) {
   ^mkdir -p ($config_dir | path join "kitty")
   ^mkdir -p ($config_dir | path join "kitty/kitty-themes")
   ^git clone --depth 1 https://github.com/dexpota/kitty-themes.git ($config_dir | path join "kitty/kitty-themes")
-  do_copy_file ($src_cfg | path join "kitty") ($config_dir | path join "kitty.conf")
+  do_copy_file ($src_cfg | path join "kitty") ($config_dir | path join "kitty/kitty.conf")
 }
 
 ## Neovim
