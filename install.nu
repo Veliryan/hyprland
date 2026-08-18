@@ -14,7 +14,7 @@ for name in ($pkg | columns) {
   print $"List: ($name)"
   print ($pkg | get $name)
 
-  let answer = (input "Install List?(y/n) Default=y")
+  let answer = (input "Install List?[y/n] Default:y ")
   let selected = ($answer != "n")
   $selection = ($selection | insert $name $selected)
 }
@@ -75,8 +75,18 @@ run_command "mkdir" ["-p", ($env.HOME | path join "Documents")]
 run_command "mkdir" ["-p", ($env.HOME | path join "Downloads")]
 run_command "mkdir" ["-p", ($env.HOME | path join "Music")]
 run_command "mkdir" ["-p", ($env.HOME | path join "Pictures")]
-run_command "mkdir" ["-p", ($env.HOME | path join "Pictures/Wallpapers")]
-run_command "mkdir" ["-p", ($env.HOME | path join "Videos")]
+
+# Extra Wallpapers
+let answer = (input "Would you like to Download Extra Wallpapers?[y/n] ")
+if ($answer == "y") {
+  run_command "git" ["clone", "https://github.com/Veliryan/hyprland_wallpapers", ($env.HOME | path join "Pictures/hyprland_wallpapers")]
+  run_command "mv" [($env.HOME | path join "Pictures/hyprland_wallpapers/Wallpapers"), ($env.HOME | path join "Pictures/Wallpapers")]
+  run_command "mv" [($env.HOME | path join "Pictures/hyprland_wallpapers/Videos"), ($env.HOME | path join "Videos")]
+  run_command "rm" ["-rf", ($env.HOME | path join "Pictures/hyprland_wallpapers")]
+} else {
+  run_command "mkdir" ["-p", ($env.HOME | path join "Pictures/Wallpapers")]
+  run_command "mkdir" ["-p", ($env.HOME | path join "Pictures/Wallpapers")]
+}
 
 # Change standard shell
 ^chsh -s "/bin/nu"
