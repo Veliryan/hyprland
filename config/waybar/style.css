@@ -1,0 +1,211 @@
+/*
+ * HYPRLAND RICE WAYBAR
+ * --------------------
+ * Dark / glassy / purple accent
+ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+/* ─────────────────────────────────────────────
+   WAYBAR
+   ───────────────────────────────────────────── */
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* ─────────────────────────────────────────────
+   GENERAL MODULE STYLE
+   ───────────────────────────────────────────── */
+#custom-wallpaper {
+    background: rgba(17, 17, 27, 0.92);
+    color: #cba6f7;
+
+    border: 1px solid rgba(203, 166, 247, 0.10);
+    border-radius: 12px;
+
+    padding: 0 14px;
+    margin: 4px 2px;
+
+    transition: all 0.2s ease;
+}
+
+#custom-wallpaper:hover {
+    color: #11111b;
+    background: #cba6f7;
+
+    box-shadow:
+        0 0 12px rgba(203, 166, 247, 0.35);
+}
+#workspaces,
+#clock,
+#tray,
+#network,
+#pulseaudio,
+#battery,
+#custom-power {
+    background: rgba(17, 17, 27, 0.92);
+    border: 1px solid rgba(203, 166, 247, 0.10);
+    border-radius: 12px;
+    padding: 0 12px;
+    margin: 4px 2px;
+}
+
+/* ─────────────────────────────────────────────
+   WORKSPACES
+   ───────────────────────────────────────────── */
+
+#workspaces {
+    padding: 3px;
+}
+
+#workspaces button {
+    color: #6c7086;
+    background: transparent;
+    border: none;
+    border-radius: 9px;
+
+    padding: 0 10px;
+    margin: 0 2px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: rgba(205, 214, 244, 0.08);
+}
+
+#workspaces button.active {
+    color: #11111b;
+    background: #cba6f7;
+
+    box-shadow:
+        0 0 10px rgba(203, 166, 247, 0.35);
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #f38ba8;
+}
+
+/* ─────────────────────────────────────────────
+   CLOCK
+   ───────────────────────────────────────────── */
+
+#clock {
+    color: #cba6f7;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    box-shadow:
+        0 0 12px rgba(203, 166, 247, 0.08);
+}
+
+/* ─────────────────────────────────────────────
+   NETWORK
+   ───────────────────────────────────────────── */
+
+#network {
+    color: #89b4fa;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* ─────────────────────────────────────────────
+   AUDIO
+   ───────────────────────────────────────────── */
+
+#pulseaudio {
+    color: #a6e3a1;
+}
+
+#pulseaudio.muted {
+    color: #f38ba8;
+}
+
+/* ─────────────────────────────────────────────
+   BATTERY
+   ───────────────────────────────────────────── */
+
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #f9e2af;
+}
+
+#battery.critical {
+    color: #f38ba8;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.charging {
+    color: #94e2d5;
+}
+
+/* ─────────────────────────────────────────────
+   SYSTEM TRAY
+   ───────────────────────────────────────────── */
+
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ─────────────────────────────────────────────
+   POWER
+   ───────────────────────────────────────────── */
+
+#custom-power {
+    color: #f38ba8;
+    padding-left: 14px;
+    padding-right: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+#custom-power:hover {
+    color: #11111b;
+    background: #f38ba8;
+
+    box-shadow:
+        0 0 12px rgba(243, 139, 168, 0.35);
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATION
+   ───────────────────────────────────────────── */
+
+@keyframes blink {
+    to {
+        color: #11111b;
+        background: #f38ba8;
+    }
+}

@@ -1,0 +1,113 @@
+configuration {
+    show-icons: true;
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+}
+
+* {
+    bg: #11111bee;
+    bg-alt: #181825ee;
+    fg: #cdd6f4;
+    accent: #cba6f7;
+    muted: #6c7086;
+    urgent: #f38ba8;
+
+    background-color: transparent;
+    text-color: @fg;
+
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    width: 900px;
+    height: 650px;
+
+    border: 1px;
+    border-color: #cba6f722;
+    border-radius: 18px;
+
+    background-color: @bg;
+
+    padding: 20px;
+}
+
+mainbox {
+    children: [
+        "inputbar",
+        "listview"
+    ];
+
+    spacing: 15px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+
+    border: 1px;
+    border-color: #cba6f722;
+    border-radius: 12px;
+
+    padding: 12px 16px;
+
+    children: [
+        "prompt",
+        "entry"
+    ];
+}
+
+prompt {
+    text-color: @accent;
+    padding-right: 10px;
+}
+
+entry {
+    placeholder: "Search wallpapers...";
+    placeholder-color: @muted;
+}
+
+listview {
+    columns: 3;
+    lines: 2;
+
+    spacing: 12px;
+
+    fixed-height: true;
+    fixed-columns: true;
+
+    scrollbar: false;
+}
+
+element {
+    orientation: vertical;
+
+    border-radius: 12px;
+
+    padding: 8px;
+
+    background-color: @bg-alt;
+
+    spacing: 8px;
+}
+
+element selected {
+    background-color: #cba6f7;
+}
+
+element-icon {
+    size: 220px;
+    horizontal-align: 0.5;
+
+    border-radius: 8px;
+}
+
+element-text {
+    horizontal-align: 0.5;
+
+    text-color: @muted;
+}
+
+element selected element-text {
+    text-color: #11111b;
+}

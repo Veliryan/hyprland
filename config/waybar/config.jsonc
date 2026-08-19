@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 42,
+  "spacing": 6,
+  "margin-top": 8,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": [
+    "custom/wallpaper",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "network",
+    "pulseaudio",
+    "battery",
+    "custom/power"
+  ],
+  "custom/wallpaper": {
+    "format": "󰸉",
+    "tooltip": true,
+    "tooltip-format": "Wallpaper wechseln",
+    "on-click": "$HOME/.config/waybar/change-wallpaper.sh"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "󰙯",
+      "5": "󰭹",
+      "6": "󰊗",
+      "7": "󰎆",
+      "8": "󰓓",
+      "9": "󰍹",
+      "10": "󰖟"
+    }
+  },
+  "clock": {
+    "format": "󰥔  {:%H:%M}",
+    "tooltip-format": "<big>{:%A, %d. %B %Y}</big>\n<tt>{calendar}</tt>"
+  },
+  "network": {
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  {ipaddr}",
+    "format-disconnected": "󰤮  Offline",
+    "tooltip-format": "{ifname}: {ipaddr}"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  Muted",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "battery": {
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
+}
