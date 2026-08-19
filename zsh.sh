@@ -16,6 +16,7 @@ if [ ! -d "$HOME/.local/share/zap" ]; then
   zsh -c 'curl -fsSL https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh | zsh'
 fi
 
+echo "" >> "$DST_CFG"
 echo "alias ls='lsd'" >> "$DST_CFG"
 echo "alias l='lsd -la'" >> "$DST_CFG"
 echo "alias cl='reset && lsd -la'" >> "$DST_CFG"
