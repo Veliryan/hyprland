@@ -6,7 +6,6 @@ chmod +x *.sh
 # did not use ./* to make sure, that the user action is close together
 
 # no user interaction
-./paru.sh
 ./drivers.sh
 ./basics.sh
 ./file_manager.sh
@@ -20,7 +19,3 @@ chmod +x *.sh
 # user interaction
 ./zsh.sh
 ./greeter.sh
-
-
-chmod -x *.sh
-echo hey

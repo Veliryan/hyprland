@@ -8,12 +8,7 @@ DST_CFG="$CONFIG_DIR/.zshrc"
 # @nav: desc
 # install, set and configure zsh
 
-if ! command -v paru >/dev/null 2>&1; then
-  chmod +x paru.sh
-  ./paru.sh
-fi
-
-paru -S --needed --noconfirm zsh curl
+sudo pacman -S --needed --noconfirm zsh curl lsd fastfetch
 
 chsh -s "$(which zsh)"
 

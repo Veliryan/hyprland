@@ -7,12 +7,7 @@ set -e
 SRC_CFG="$PWD/config/kitty.conf"
 CONFIG_DIR="$HOME/.config/kitty"
 
-if ! command -v paru >/dev/null 2>&1; then
-  chmod +x paru.sh
-  ./paru.sh
-fi
-
-paru -S --needed --noconfirm kitty
+sudo pacman -S --needed --noconfirm kitty
 
 mkdir -p $CONFIG_DIR
 if [ ! -d "$CONFIG_DIR/kitty-themes" ]; then
