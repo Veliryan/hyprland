@@ -11,6 +11,9 @@ DST_WBAR="$CONFIG_DIR/waybar"
 SRC_WBAR="$SRC_DIR/waybar"
 DST_ROFI="$CONFIG_DIR/rofi"
 SRC_ROFI="$SRC_DIR/rofi"
+DST_PAPR="$HOME/Pictures/Wallpapers"
+SRC_PAPR="$CURRENT_DIR/Wallpapers"
+
 
 mkdir -p "$HOME/Pictures/Wallpapers"
 
@@ -43,4 +46,6 @@ if [ ! -f "$DST_ROFI/wallpaper.rasi" ]; then
   cp "$SRC_ROFI/wallpaper.rasi" "$DST_ROFI/wallpaper.rasi"
 fi
 
-# hyprlock
+# Wallpapers
+mkdir -p "$DST_PAPR"
+cp -n "$SRC_PAPR/*" "$DST_PAPR/"
