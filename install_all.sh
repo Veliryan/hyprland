@@ -6,6 +6,7 @@ chmod +x *.sh
 # did not use ./* to make sure, that the user action is close together
 
 # no user interaction
+./create_dir.sh
 ./drivers.sh
 ./basics.sh
 ./file_manager.sh
