@@ -25,7 +25,8 @@ hl.monitor({
 })
 --]]
 
-local terminal      = "kitty"
+local terminal_fallback      = "kitty"
+local terminal = "foot"
 local file_manager  = "thunar"
 local menu          = "hyprlauncher"
 local web_browser   = "firefox"
@@ -200,6 +201,7 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal_fallback))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M",
