@@ -7,7 +7,7 @@ set -e
 SRC_CFG="$PWD/config/kitty.conf"
 CONFIG_DIR="$HOME/.config/kitty"
 
-sudo pacman -S --needed --noconfirm kitty
+sudo pacman -S --needed --noconfirm foot #kitty
 
 mkdir -p $CONFIG_DIR
 if [ ! -d "$CONFIG_DIR/kitty-themes" ]; then
