@@ -17,7 +17,7 @@ SRC_PAPR="$CURRENT_DIR/Wallpapers"
 
 mkdir -p "$HOME/Pictures/Wallpapers"
 
-sudo pacman -S --needed --noconfirm hyprland hyprlock hyprshot waybar awww rofi imagemagick kitty firefox
+sudo pacman -S --needed --noconfirm hyprland hyprlock hyprlauncher hyprshot waybar awww rofi imagemagick kitty firefox
 
 # Hyprland
 mkdir -p "$DST_HYPR"
